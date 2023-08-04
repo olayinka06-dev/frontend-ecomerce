@@ -16,4 +16,8 @@
   }
 }
 
+.nav-link{
+  @apply relative after:absolute after:bottom-[-150%] after:bg-[hsl(26,100%,55%)] duration-300 after:transition-transform after:scale-x-0 after:h-1 after:w-full after:left-0 hover:after:scale-x-[1] hover:after:bg-[hsl(26,100%,55%)]
+}
+
 

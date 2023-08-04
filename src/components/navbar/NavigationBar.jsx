@@ -4,14 +4,14 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const NavigationBar = () => {
-  const [menuLink, setMenuLink] = useState(0);
+  // const [menuLink, setMenuLink] = useState(0);
   const menuLinks = ["Collections", "Men", "Women", "About", "Contact"];
-  const handleMenuLinks = (i) => {
-    setMenuLink(i);
-  };
+  // const handleMenuLinks = (i) => {
+  //   setMenuLink(i);
+  // };
   return (
     <header className="container mx-auto">
-      <nav className="w-full item-center flex justify-between py-6 bg-green-500">
+      <nav className="w-full border-b border-solid border-[hsl(220,14%,75%)] item-center flex justify-between py-5">
         <div className="w-1/2 flex items-center flex-row justify-between">
           <div className="logo">
             <Image
@@ -23,7 +23,9 @@ const NavigationBar = () => {
           </div>
           <div className="flex flex-row gap-5">
             {menuLinks.map((ml, i) => (
-              <Link onMouseEnter={() => handleMenuLinks(i)} href={"/"}>
+              <Link className={`text-[hsl(219,9%,45%)] nav-link`}
+              //  onMouseEnter={() => handleMenuLinks(i)}
+                href={"/"}>
                 {ml}
               </Link>
             ))}
