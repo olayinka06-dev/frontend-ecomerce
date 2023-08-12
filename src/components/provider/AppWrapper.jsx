@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { EcomerceContext } from "./Context";
 
 export const AppWrapper = ({ children }) => {
@@ -80,6 +81,7 @@ export const AppWrapper = ({ children }) => {
     handleCheckOut, handleClickThumb,
     handleNext, handleRemoveCart,
     handleShowCarousel, handleShowCartItem,
+    setCountProduct, setDisplayCarousel,
     activeThumb, displayCarousel,
     showCartComponent, showCartItem,
     showCartMessage, priceData,

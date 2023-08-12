@@ -2,16 +2,11 @@
 import Aos from "aos";
 import React, {useEffect} from "react";
 import "aos/dist/aos.css";
+import { useEcomerceContext } from "../provider/Context";
+import { PaginationOverlay } from "../entities/Entity";
 
-const ProductCarousel = ({
-  setDisplayCarousel,
-  activeThumb,
-  handleClickThumb,
-  productTabImg,
-  handleBackward,
-  handleNext,
-  productTabThumbImg
-}) => {
+const ProductCarousel = () => {
+  const {allData} = useEcomerceContext()
 
   useEffect(() => {
     Aos.init({
@@ -27,9 +22,9 @@ const ProductCarousel = ({
         <div className="flex justify-end">
           <div className="">
             <img
-              onClick={() => setDisplayCarousel(false)}
+              onClick={() => allData.setDisplayCarousel(false)}
               src="/images/icon-close.svg"
-              className="h-auto"
+              className="h-auto cursor-pointer"
               alt=""
             />
           </div>
@@ -38,14 +33,14 @@ const ProductCarousel = ({
           <img
             data-aos="fade-down"
             className="w-full rounded-2xl h-auto"
-            src={productTabImg[activeThumb]}
+            src={allData.productTabImg[allData.activeThumb]}
             alt=""
           />
         </div>
         <div className="flex justify-between relative bottom-[230px]">
           <button
             className="bg-white opacity-[100%] transition duration-300 ease-linear hover:opacity-[70%] py-[10px] px-[13px] ml-[-13px] rounded-full"
-            onClick={handleBackward}
+            onClick={allData.handleBackward}
           >
             <img
               src="/images/icon-previous.svg"
@@ -55,7 +50,7 @@ const ProductCarousel = ({
           </button>
           <button
             className="bg-white opacity-[100%] transition duration-300 ease-linear hover:opacity-[70%] py-[10px] px-[13px] mr-[-13px]  rounded-full"
-            onClick={handleNext}
+            onClick={allData.handleNext}
           >
             <img
               src="/images/icon-next.svg"
@@ -64,21 +59,7 @@ const ProductCarousel = ({
             />
           </button>
         </div>
-        <div data-aos="fade-up" className="grid grid-cols-4 gap-x-4">
-          {productTabThumbImg.map((ptti, i) => (
-            <img
-              className={` rounded-2xl ${
-                activeThumb === i
-                  ? "border-[3px] border-solid border-[hsl(26,100%,55%)] opacity-[90%]"
-                  : ""
-              }`}
-              onClick={() => handleClickThumb(i)}
-              key={i}
-              src={ptti}
-              alt="thumb"
-            />
-          ))}
-        </div>
+        <PaginationOverlay/>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { AppWrapper } from '@/components/provider/AppWrapper'
 import './globals.css'
 import { Kumbh_Sans } from 'next/font/google'
 
@@ -11,7 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={kumbh_Sans.className}>{children}</body>
+      <body className={kumbh_Sans.className}>
+        <AppWrapper>{children}</AppWrapper>
+      </body>
     </html>
   )
 }
