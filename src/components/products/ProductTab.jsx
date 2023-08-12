@@ -1,6 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import "aos/dist/aos.css"
 import ProductCarousel from "./ProductCarousel";
+import Aos from "aos";
 
 const ProductTab = ({
   handleCartProduct,
@@ -17,6 +19,14 @@ const ProductTab = ({
   setCountProduct,
   countProduct,
 }) => {
+  useEffect(() => {
+    Aos.init({
+      duration: 500,
+      easing: "ease-in",
+      delay: 100
+    })
+  }, []);
+
   const handleDecrement = () => {
     if (countProduct > 0) {
       setCountProduct(countProduct - 1);
@@ -36,7 +46,7 @@ const ProductTab = ({
         />
       ) : (
         <div className="w-full justify-center items-center md:py-10 flex flex-col md:flex-row">
-          <div className="md:w-[40%] w-full flex flex-col gap-2 justify-center items-center">
+          <div data-aos="fade-left" className="md:w-[40%] w-full flex flex-col gap-2 justify-center items-center">
             <div className="">
               <img
                 onClick={handleShowCarousel}
@@ -88,7 +98,7 @@ const ProductTab = ({
               ))}
             </div>
           </div>
-          <div className="pb-4 md:w-[60%] w-full px-5 md:px-28 flex flex-col gap-2">
+          <div data-aos="fade-right" className="pb-4 md:w-[60%] w-full px-5 md:px-28 flex flex-col gap-2">
             <h3 className="text-[hsl(26,100%,55%)] font-[700] text-[20px]">
               Sneaker Company
             </h3>

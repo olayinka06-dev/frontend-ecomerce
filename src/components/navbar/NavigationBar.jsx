@@ -22,12 +22,12 @@ const NavigationBar = ({
   };
 
   return (
-    <header className="z-[900] sticky top-0 bg-white">
+    <header className="z-[500] sticky top-0 bg-white">
       <nav className="w-full border-b border-solid border-[hsl(220,14%,75%)] item-center flex justify-between py-5">
         <div className="w-1/2 flex items-center flex-row justify-between">
           <button
             onClick={toggleMenu}
-            className={`lg:hidden z-[1000] ${menu ? "toggle open" : "toggle"}`}
+            className={`lg:hidden z-[500] ${menu ? "toggle open" : "toggle"}`}
           >
             <div className="first"></div>
             <div className="second"></div>
@@ -49,7 +49,7 @@ const NavigationBar = ({
             ))}
           </div>
         </div>
-        <div className={`md:hidden pt-24 pl-4 h-screen transition-[all,3s,ease-linear] w-[200px] ${menu ? "ml-[0px]" : "ml-[-200px]"} fixed top-0 left-0 bg-white z-[800] flex flex-col gap-5`}>
+        <div className={`md:hidden pt-24 pl-4 h-screen transition-[all,3s,ease-linear] w-[200px] ${menu ? "ml-[0px]" : "ml-[-200px]"} fixed top-0 left-0 bg-white z-[400] flex flex-col gap-5`}>
           {menuLinks.map((ml, i) => (
             <Link key={i} className={`text-[hsl(220,13%,13%)] font-[700] nav-link`} href={"/"}>
               {ml}

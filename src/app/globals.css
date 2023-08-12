@@ -17,7 +17,7 @@
 }
 
 .nav-link{
-  @apply relative after:absolute after:bottom-0 md:after:bottom-[-150%] after:bg-[hsl(26,100%,55%)] duration-300 after:transition-transform after:scale-x-0 after:h-1 md:after:w-full after:w-[90px] after:left-0 hover:after:scale-x-[1] hover:after:bg-[hsl(26,100%,55%)]
+  @apply relative transition duration-500 ease-linear after:absolute after:bottom-0 md:after:bottom-[-150%] after:bg-[hsl(26,100%,55%)] after:transition-transform after:scale-x-0 after:h-1 md:after:w-full after:w-[90px] after:left-0 hover:after:scale-x-[1] hover:after:bg-[hsl(26,100%,55%)]
 }
 
 .toggle {
