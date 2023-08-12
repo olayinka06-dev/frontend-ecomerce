@@ -5,10 +5,13 @@ const page = () => {
   const [selectedOptions, setselectedOptions] = useState([]);
   const randomData = ["Hello", "car", "Boy", "Tade", "Bose"];
   const handleClick = (i) => {
-    if (selectedOptions.includes(i)) {
-        setselectedOptions(selectedOptions.filter(item => item = i))
-    } else {
-        setselectedOptions([...selectedOptions, i]);
+    // if (selectedOptions.includes(i)) {
+    //     setselectedOptions(selectedOptions.filter(item => item = i))
+    // } else {
+    //     setselectedOptions([...selectedOptions, i]);
+    // }
+    if (!selectedOptions.includes(i)) {
+      setselectedOptions([...selectedOptions, i]);
     }
   };
   return (

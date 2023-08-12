@@ -1,9 +1,7 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import NavigationBar from "@/components/navbar/NavigationBar";
-import ProductTab from "@/components/products/ProductTab";
+import React from "react";
+import { EcomerceContext } from "./Context";
 
-export default function Home() {
+export const AppWrapper = ({ children }) => {
   const [activeThumb, setactiveThumb] = useState(0);
   const [displayCarousel, setDisplayCarousel] = useState(false);
   const [countProduct, setCountProduct] = useState(0);
@@ -77,36 +75,20 @@ export default function Home() {
     alert(`Thank you for ordering ${countProduct} Fall Limited Edition Sneakers`)
   }
 
+  const allData = {
+    handleBackward, handleCartProduct,
+    handleCheckOut, handleClickThumb,
+    handleNext, handleRemoveCart,
+    handleShowCarousel, handleShowCartItem,
+    activeThumb, displayCarousel,
+    showCartComponent, showCartItem,
+    showCartMessage, priceData,
+    productTabImg, productTabThumbImg,
+    countProduct, manager,
+  };
   return (
-    <section className="md:px-20">
-      <main className="container mx-auto">
-        <NavigationBar
-          manager={manager}
-          priceData={priceData}
-          showCartMessage={showCartMessage}
-          showCartComponent={showCartComponent}
-          handleShowCartItem={handleShowCartItem}
-          showItem={showCartItem}
-          countProdut={countProduct}
-          handleRemoveCart={handleRemoveCart}
-          handleCheckOut={handleCheckOut}
-        />
-        <ProductTab
-          setDisplayCarousel={setDisplayCarousel}
-          activeThumb={activeThumb}
-          handleClickThumb={handleClickThumb}
-          productTabImg={productTabImg}
-          handleBackward={handleBackward}
-          handleNext={handleNext}
-          productTabThumbImg={productTabThumbImg}
-          displayCarousel={displayCarousel}
-          handleShowCarousel={handleShowCarousel}
-          priceData={priceData}
-          setCountProduct={setCountProduct}
-          countProduct={countProduct}
-          handleCartProduct={handleCartProduct}
-        />
-      </main>
-    </section>
+    <EcomerceContext.Provider value={{ allData }}>
+      {children}
+    </EcomerceContext.Provider>
   );
-}
+};
