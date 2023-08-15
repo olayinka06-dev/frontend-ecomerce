@@ -4,6 +4,8 @@ import React, {useEffect} from "react";
 import "aos/dist/aos.css";
 import { useEcomerceContext } from "../provider/Context";
 import { PaginationOverlay } from "../entities/Entity";
+import {RiArrowDropRightLine, RiArrowDropLeftLine} from "react-icons/ri";
+import {GrFormClose} from 'react-icons/gr'
 
 const ProductCarousel = () => {
   const {allData} = useEcomerceContext()
