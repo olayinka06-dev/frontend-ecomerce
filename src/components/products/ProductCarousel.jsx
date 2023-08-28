@@ -44,16 +44,16 @@ const ProductCarousel = () => {
             className="bg-white opacity-[100%] transition duration-300 ease-linear py-[10px] px-[13px] ml-[-13px] rounded-full"
             onClick={allData.handleBackward}
           >
-            <span className="transition text-[25px] hover:text-[hsl(26,100%,55%)] duration-300 ease-linear mr-[2px]">
-              <RiArrowDropLeftLine />
+            <span className="transition  hover:text-[hsl(26,100%,55%)] duration-300 ease-linear mr-[2px]">
+              <RiArrowDropLeftLine className="text-[25px]" />
             </span>
           </button>
           <button
             className="bg-white opacity-[100%] transition duration-300 ease-linear py-[10px] px-[13px] mr-[-13px]  rounded-full"
             onClick={allData.handleNext}
           >
-            <span className="transition text-[25px] hover:text-[hsl(26,100%,55%)] duration-300 ease-linear ml-[2px]">
-              <RiArrowDropRightLine />
+            <span className="transition  hover:text-[hsl(26,100%,55%)] duration-300 ease-linear ml-[2px]">
+              <RiArrowDropRightLine className="text-[25px]" />
             </span>
           </button>
         </div>
