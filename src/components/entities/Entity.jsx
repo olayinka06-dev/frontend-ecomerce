@@ -101,7 +101,7 @@ export const Pagination = () => {
 export const PaginationOverlay = () => {
   const { allData } = useEcomerceContext();
   return (
-    <div data-aos="fade-up" className="grid grid-cols-4 gap-x-4">
+    <div  className="grid grid-cols-4 gap-x-4">
       {allData.productTabThumbImg.map((ptti, i) => (
         <img
           className={` rounded-2xl ${

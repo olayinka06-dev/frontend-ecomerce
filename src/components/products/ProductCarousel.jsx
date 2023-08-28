@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import { useEcomerceContext } from "../provider/Context";
 import { PaginationOverlay } from "../entities/Entity";
 import { RiArrowDropRightLine, RiArrowDropLeftLine } from "react-icons/ri";
-import { GrFormClose } from "react-icons/gr";
+import { RiCloseFill } from "react-icons/ri";
 
 const ProductCarousel = () => {
   const { allData } = useEcomerceContext();
@@ -23,11 +23,8 @@ const ProductCarousel = () => {
       <div className="max-w-[400px] flex flex-col gap-3 w-full">
         <div className="flex justify-end">
           <div className="">
-            <span
-              onClick={() => allData.setDisplayCarousel(false)}
-              className="h-auto text-[20px] hover:text-[hsl(26,100%,55%)] cursor-pointer"
-            >
-              <GrFormClose />
+            <span className="text-white" onClick={() => allData.setDisplayCarousel(false)}>
+              <RiCloseFill className="transition cursor-pointer duration-300 opacity-[65%] hover:opacity-[100%] hover:text-[hsl(26,100%,55%)] text-white text-[33px] ease-linear" />
             </span>
           </div>
         </div>
@@ -41,20 +38,16 @@ const ProductCarousel = () => {
         </div>
         <div className="flex justify-between relative bottom-[230px]">
           <button
-            className="bg-white opacity-[100%] transition duration-300 ease-linear py-[10px] px-[13px] ml-[-13px] rounded-full"
+            className="bg-white opacity-[100%] transition duration-300 ease-linear ml-[-13px] rounded-full"
             onClick={allData.handleBackward}
           >
-            <span className="transition  hover:text-[hsl(26,100%,55%)] duration-300 ease-linear mr-[2px]">
-              <RiArrowDropLeftLine className="text-[25px]" />
-            </span>
+            <RiArrowDropLeftLine className="transition duration-300 opacity-[65%] hover:opacity-[100%] hover:text-[hsl(26,100%,55%)] text-[43px] ease-linear mr-[2px]" />
           </button>
           <button
-            className="bg-white opacity-[100%] transition duration-300 ease-linear py-[10px] px-[13px] mr-[-13px]  rounded-full"
+            className="bg-white opacity-[100%] transition duration-300 ease-linear mr-[-13px]  rounded-full"
             onClick={allData.handleNext}
           >
-            <span className="transition  hover:text-[hsl(26,100%,55%)] duration-300 ease-linear ml-[2px]">
-              <RiArrowDropRightLine className="text-[25px]" />
-            </span>
+            <RiArrowDropRightLine className="transition duration-300 opacity-[65%] hover:opacity-[100%] hover:text-[hsl(26,100%,55%)] text-[43px] ease-linear ml-[2px]" />
           </button>
         </div>
         <PaginationOverlay />
