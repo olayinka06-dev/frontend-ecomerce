@@ -33,7 +33,7 @@ export const AppWrapper = ({ children }) => {
     promo: 50,
     price_pro: 125.0,
   };
-  
+
   const handleShowCarousel = (i) => {
     setDisplayCarousel(true);
   };
@@ -64,17 +64,21 @@ export const AppWrapper = ({ children }) => {
   };
 
   const handleRemoveCart = () => {
-    setManager(false)
-    setCountProduct(0)
-    setShowCartMessage(false)
-  }
+    if (confirm("Are you sure you want to remove the items you cart")) {
+      setManager(false);
+      setCountProduct(0);
+      setShowCartMessage(false);
+    }
+  };
   const handleCheckOut = () => {
     setShowCartComponent(!showCartComponent);
-    setManager(false)
-    setCountProduct(0)
-    setShowCartMessage(false)
-    alert(`Thank you for ordering ${countProduct} Fall Limited Edition Sneakers`)
-  }
+    setManager(false);
+    setCountProduct(0);
+    setShowCartMessage(false);
+    alert(
+      `Thank you for ordering ${countProduct} Fall Limited Edition Sneakers`
+    );
+  };
 
   const allData = {
     handleBackward, handleCartProduct,

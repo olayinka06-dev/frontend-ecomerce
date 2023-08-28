@@ -91,8 +91,10 @@ const ProductTab = () => {
               <Counter/>
               <div className="w-full md:w-[60%]">
                 <button
+                disabled={allData.countProduct === 0}
+                title={allData.countProduct === 0 ? "please add to cart items" : ""}
                   onClick={() => allData.handleCartProduct(allData.countProduct)}
-                  className="py-[14px] text-white w-full rounded-2xl border-none bg-[hsl(26,100%,55%)] hover:opacity-[70%]"
+                  className={`py-[14px] ${allData.countProduct === 0 ? "cursor-not-allowed" : ""} text-white w-full rounded-2xl border-none bg-[hsl(26,100%,55%)] hover:opacity-[70%]`}
                 >
                   Add to cart
                 </button>
