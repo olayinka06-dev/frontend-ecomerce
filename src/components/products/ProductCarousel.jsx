@@ -1,21 +1,21 @@
 "use client";
 import Aos from "aos";
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "aos/dist/aos.css";
 import { useEcomerceContext } from "../provider/Context";
 import { PaginationOverlay } from "../entities/Entity";
-import {RiArrowDropRightLine, RiArrowDropLeftLine} from "react-icons/ri";
-import {GrFormClose} from 'react-icons/gr'
+import { RiArrowDropRightLine, RiArrowDropLeftLine } from "react-icons/ri";
+import { GrFormClose } from "react-icons/gr";
 
 const ProductCarousel = () => {
-  const {allData} = useEcomerceContext()
+  const { allData } = useEcomerceContext();
 
   useEffect(() => {
     Aos.init({
       duration: 500,
       easing: "ease-in",
-      delay: 100
-    })
+      delay: 100,
+    });
   }, []);
 
   return (
@@ -23,12 +23,12 @@ const ProductCarousel = () => {
       <div className="max-w-[400px] flex flex-col gap-3 w-full">
         <div className="flex justify-end">
           <div className="">
-            <img
+            <span
               onClick={() => allData.setDisplayCarousel(false)}
-              src="/images/icon-close.svg"
-              className="h-auto cursor-pointer"
-              alt=""
-            />
+              className="h-auto text-[20px] hover:text-[hsl(26,100%,55%)] cursor-pointer"
+            >
+              <GrFormClose />
+            </span>
           </div>
         </div>
         <div className="w-full relative">
@@ -41,27 +41,23 @@ const ProductCarousel = () => {
         </div>
         <div className="flex justify-between relative bottom-[230px]">
           <button
-            className="bg-white opacity-[100%] transition duration-300 ease-linear hover:opacity-[70%] py-[10px] px-[13px] ml-[-13px] rounded-full"
+            className="bg-white opacity-[100%] transition duration-300 ease-linear py-[10px] px-[13px] ml-[-13px] rounded-full"
             onClick={allData.handleBackward}
           >
-            <img
-              src="/images/icon-previous.svg"
-              className="transition duration-300 ease-linear mr-[2px]"
-              alt=""
-            />
+            <span className="transition text-[25px] hover:text-[hsl(26,100%,55%)] duration-300 ease-linear mr-[2px]">
+              <RiArrowDropLeftLine />
+            </span>
           </button>
           <button
-            className="bg-white opacity-[100%] transition duration-300 ease-linear hover:opacity-[70%] py-[10px] px-[13px] mr-[-13px]  rounded-full"
+            className="bg-white opacity-[100%] transition duration-300 ease-linear py-[10px] px-[13px] mr-[-13px]  rounded-full"
             onClick={allData.handleNext}
           >
-            <img
-              src="/images/icon-next.svg"
-              className="transition duration-300 ease-linear ml-[2px]"
-              alt=""
-            />
+            <span className="transition text-[25px] hover:text-[hsl(26,100%,55%)] duration-300 ease-linear ml-[2px]">
+              <RiArrowDropRightLine />
+            </span>
           </button>
         </div>
-        <PaginationOverlay/>
+        <PaginationOverlay />
       </div>
     </div>
   );
