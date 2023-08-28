@@ -1,5 +1,6 @@
 import React from "react";
 import { useEcomerceContext } from "../provider/Context";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 export const CartComponent = () => {
   const { allData } = useEcomerceContext();
@@ -40,12 +41,7 @@ export const CartComponent = () => {
                   </div>
                 </div>
                 <div className="">
-                  <img
-                    className="cursor-pointer"
-                    onClick={allData.handleRemoveCart}
-                    src="/images/icon-delete.svg"
-                    alt=""
-                  />
+                  <RiDeleteBin6Line className="cursor-pointer text-[18px] text-[hsl(220,14%,75%)] hover:text-[hsl(26,100%,55%)] transition-all" onClick={allData.handleRemoveCart}/>
                 </div>
               </div>
               <button
