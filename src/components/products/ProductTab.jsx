@@ -5,6 +5,7 @@ import ProductCarousel from "./ProductCarousel";
 import Aos from "aos";
 import { useEcomerceContext } from "../provider/Context";
 import { Counter, Pagination } from "../entities/Entity";
+import Image from "next/image";
 
 const ProductTab = () => {
   const {allData} = useEcomerceContext()
@@ -24,14 +25,17 @@ const ProductTab = () => {
         <div className="w-full justify-center items-center md:py-10 flex flex-col md:flex-row">
           <div data-aos="fade-left" className="md:w-[40%] w-full flex flex-col gap-2 justify-center items-center">
             <div className="">
-              <img
+              <Image
+                height={500}
+                width={500}
+                priority
                 onClick={allData.handleShowCarousel}
-                className="md:block hidden h-full md:rounded-3xl"
+                className="md:block hidden w-auto h-full md:rounded-3xl"
                 src={allData.productTabImg[allData.activeThumb]}
                 alt="thumb"
               />
               <img
-                className="block md:hidden h-full md:rounded-3xl"
+                className="block md:hidden h-auto md:rounded-3xl"
                 src={allData.productTabImg[allData.activeThumb]}
                 alt="thumb"
               />

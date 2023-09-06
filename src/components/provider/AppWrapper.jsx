@@ -53,7 +53,7 @@ export const AppWrapper = ({ children }) => {
       setactiveThumb(activeThumb - 1);
     }
   };
-  const handleCartProduct = (i) => {
+  const handleCartProduct = () => {
     setShowCartMessage(true);
     setManager(true);
     setshowCartItem(productTabImg[activeThumb]);

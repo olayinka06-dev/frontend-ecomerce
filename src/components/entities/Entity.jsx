@@ -1,19 +1,26 @@
 import React from "react";
 import { useEcomerceContext } from "../provider/Context";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Image from "next/image";
 
 export const CartComponent = () => {
   const { allData } = useEcomerceContext();
   return (
     allData.showCartComponent && (
-      <div data-aos="fade-up" className="absolute py-3 rounded-2xl px-2 right-5 w-[300px] h-[200px] bg-white shadow-md">
+      <div
+        data-aos="fade-up"
+        className="absolute py-3 rounded-2xl px-2 right-5 w-[300px] h-[200px] bg-white shadow-md"
+      >
         <h3>Cart</h3>
         <div className="border-t">
           {allData.manager ? (
             <div className="">
               <div className="w-full py-5  flex justify-between items-center border-solid">
                 <div className="">
-                  <img
+                  <Image
+                    priority
+                    height={50}
+                    width={50}
                     src={allData.showCartItem}
                     className="h-[50px] rounded-[2px]"
                     alt=""
@@ -41,7 +48,10 @@ export const CartComponent = () => {
                   </div>
                 </div>
                 <div className="">
-                  <RiDeleteBin6Line className="cursor-pointer text-[18px] text-[hsl(220,14%,75%)] hover:text-[hsl(26,100%,55%)] transition-all" onClick={allData.handleRemoveCart}/>
+                  <RiDeleteBin6Line
+                    className="cursor-pointer text-[18px] text-[hsl(220,14%,75%)] hover:text-[hsl(26,100%,55%)] transition-all"
+                    onClick={allData.handleRemoveCart}
+                  />
                 </div>
               </div>
               <button
@@ -78,8 +88,11 @@ export const Pagination = () => {
   return (
     <div className="hidden md:grid grid-cols-4 gap-4">
       {allData.productTabThumbImg.map((ptti, i) => (
-        <img
-          className={` rounded-2xl ${
+        <Image
+          priority
+          height={100}
+          width={100}
+          className={` rounded-2xl w-auto h-auto ${
             allData.activeThumb === i
               ? "border-[3px] border-solid border-[hsl(26,100%,55%)]"
               : ""
@@ -97,10 +110,13 @@ export const Pagination = () => {
 export const PaginationOverlay = () => {
   const { allData } = useEcomerceContext();
   return (
-    <div  className="grid grid-cols-4 gap-x-4">
+    <div className="grid grid-cols-4 gap-x-4">
       {allData.productTabThumbImg.map((ptti, i) => (
-        <img
-          className={` rounded-2xl ${
+        <Image
+          priority
+          height={100}
+          width={100}
+          className={` rounded-2xl w-auto h-auto ${
             allData.activeThumb === i
               ? "border-[3px] border-solid border-[hsl(26,100%,55%)] opacity-[90%]"
               : ""
