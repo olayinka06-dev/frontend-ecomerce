@@ -10,6 +10,8 @@ export const AppWrapper = ({ children }) => {
   const [showCartItem, setshowCartItem] = useState(null);
   const [showCartComponent, setShowCartComponent] = useState(false);
   const [showCartMessage, setShowCartMessage] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [checkOut, setCheckOut] = useState(false);
 
   const handleClickThumb = (i) => {
     setshowCartItem(productTabImg[activeThumb]);
@@ -64,20 +66,10 @@ export const AppWrapper = ({ children }) => {
   };
 
   const handleRemoveCart = () => {
-    if (confirm("Are you sure you want to remove the items you cart")) {
-      setManager(false);
-      setCountProduct(0);
-      setShowCartMessage(false);
-    }
+    setOpenModal(true);
   };
   const handleCheckOut = () => {
-    setShowCartComponent(!showCartComponent);
-    setManager(false);
-    setCountProduct(0);
-    setShowCartMessage(false);
-    alert(
-      `Thank you for ordering ${countProduct} Fall Limited Edition Sneakers`
-    );
+    setCheckOut(true)
   };
 
   const allData = {
@@ -86,6 +78,11 @@ export const AppWrapper = ({ children }) => {
     handleNext, handleRemoveCart,
     handleShowCarousel, handleShowCartItem,
     setCountProduct, setDisplayCarousel,
+    setOpenModal,setManager,
+    setShowCartMessage, setShowCartComponent,
+    setCheckOut,
+    checkOut, 
+    openModal,
     activeThumb, displayCarousel,
     showCartComponent, showCartItem,
     showCartMessage, priceData,

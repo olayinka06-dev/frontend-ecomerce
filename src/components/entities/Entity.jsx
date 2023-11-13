@@ -155,3 +155,103 @@ export const Counter = () => {
     </div>
   );
 };
+
+export const Modal = () => {
+  const { allData } = useEcomerceContext();
+  const {
+    openModal,
+    setOpenModal,
+    setCountProduct,
+    setManager,
+    setShowCartMessage,
+    setShowCartComponent
+  } = allData;
+
+  const handleClearCart = () => {
+    setManager(false);
+    setCountProduct(0);
+    setShowCartMessage(false);
+    setOpenModal(false);
+
+    setTimeout(() => {
+      setShowCartComponent(false)
+    }, 2000);
+  };
+  return (
+    openModal && (
+      <div
+        className="w-full fixed left-0 top-0 bottom-0 bg-[rgba(0,0,0,.3)] transition-all ease-out duration-500 z-[1000] h-screen flex items-center justify-center"
+      >
+        <div data-aos="fade-down" className="max-w-[400px] rounded-xl flex flex-col gap-3 p-5 h-[30vh] bg-white shadow-md border">
+          <span className="text-[hsl(26,100%,55%)]">Dialog box</span>
+          <p className="">Are you sure you want to remove the items you cart</p>
+          <div className="w-full flex items-center gap-2">
+            <button
+              onClick={() => setOpenModal(false)}
+              className=" text-white bg-gray-400 w-1/2 border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-lg"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleClearCart}
+              className=" text-white w-1/2 bg-[hsl(26,100%,55%)] border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-lg"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  );
+};
+
+
+export const CheckOutModal = () => {
+  const { allData } = useEcomerceContext();
+  const {
+    countProduct,
+    checkOut,
+    setCheckOut,
+    setCountProduct,
+    setManager,
+    setShowCartMessage,
+    setShowCartComponent
+  } = allData;
+
+  const handleCheckOut = () => {
+    setCheckOut(false)
+    setShowCartComponent(false);
+    setManager(false);
+    setCountProduct(0);
+    setShowCartMessage(false);
+    alert(
+      `Thank you for ordering ${countProduct} Fall Limited Edition Sneakers`
+    );
+  };
+  return (
+    checkOut && (
+      <div
+        className="w-full fixed left-0 top-0 bottom-0 bg-[rgba(0,0,0,.3)] transition-all ease-out duration-500 z-[1000] h-screen flex items-center justify-center"
+      >
+        <div data-aos="fade-down" className="max-w-[400px] rounded-xl flex flex-col gap-3 p-5 h-[30vh] bg-white shadow-md border">
+          <span className="text-[hsl(26,100%,55%)]">Dialog box</span>
+          <p className="">Are you sure you want to check out the items you cart</p>
+          <div className="w-full flex items-center gap-2">
+            <button
+              onClick={() => setCheckOut(false)}
+              className=" text-white bg-gray-400 w-1/2 border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-lg"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleCheckOut}
+              className=" text-white w-1/2 bg-[hsl(26,100%,55%)] border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-lg"
+            >
+              Check Out
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  );
+};
