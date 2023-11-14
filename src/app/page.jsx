@@ -2,7 +2,7 @@
 import React from "react";
 import NavigationBar from "@/components/navbar/NavigationBar";
 import ProductTab from "@/components/products/ProductTab";
-import { CheckOutModal, Modal } from "@/components/entities/Entity";
+import { CheckOutModal, Modal, SuccessModal } from "@/components/entities/Entity";
 
 export default function Home() {
 
@@ -13,6 +13,7 @@ export default function Home() {
         <ProductTab/>
         <Modal/>
         <CheckOutModal/>
+        <SuccessModal/>
       </main>
     </section>
   );

@@ -10,8 +10,12 @@ export const AppWrapper = ({ children }) => {
   const [showCartItem, setshowCartItem] = useState(null);
   const [showCartComponent, setShowCartComponent] = useState(false);
   const [showCartMessage, setShowCartMessage] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const [checkOut, setCheckOut] = useState(false);
+  const [modal, setModal] = useState({
+    openModal: false,
+    checkOut: false,
+    success: false,
+  });
+
 
   const handleClickThumb = (i) => {
     setshowCartItem(productTabImg[activeThumb]);
@@ -66,28 +70,38 @@ export const AppWrapper = ({ children }) => {
   };
 
   const handleRemoveCart = () => {
-    setOpenModal(true);
+    setModal({...modal, openModal: true});
   };
   const handleCheckOut = () => {
-    setCheckOut(true)
+    setModal({...modal, checkOut: true});
   };
 
   const allData = {
-    handleBackward, handleCartProduct,
-    handleCheckOut, handleClickThumb,
-    handleNext, handleRemoveCart,
-    handleShowCarousel, handleShowCartItem,
-    setCountProduct, setDisplayCarousel,
-    setOpenModal,setManager,
-    setShowCartMessage, setShowCartComponent,
-    setCheckOut,
-    checkOut, 
-    openModal,
-    activeThumb, displayCarousel,
-    showCartComponent, showCartItem,
-    showCartMessage, priceData,
-    productTabImg, productTabThumbImg,
-    countProduct, manager,
+    handleBackward,
+    handleCartProduct,
+    handleCheckOut,
+    handleClickThumb,
+    handleNext,
+    handleRemoveCart,
+    handleShowCarousel,
+    handleShowCartItem,
+    setCountProduct,
+    setDisplayCarousel,
+    setManager,
+    setShowCartMessage,
+    setShowCartComponent,
+    setModal,
+    modal, 
+    activeThumb,
+    displayCarousel,
+    showCartComponent,
+    showCartItem,
+    showCartMessage,
+    priceData,
+    productTabImg,
+    productTabThumbImg,
+    countProduct,
+    manager,
   };
   return (
     <EcomerceContext.Provider value={{ allData }}>
