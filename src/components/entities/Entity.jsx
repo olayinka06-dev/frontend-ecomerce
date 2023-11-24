@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useEcomerceContext } from "../provider/Context";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Image from "next/image";
 
 export const CartComponent = () => {
   const { allData } = useEcomerceContext();
+  const cartPopupRef = useRef(null);
+  const { showCartComponent, setShowCartComponent } = allData;
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        cartPopupRef.current &&
+        !cartPopupRef.current.contains(event.target)
+      ) {
+        setShowCartComponent(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [showCartComponent]);
   return (
     allData.showCartComponent && (
       <div
+        ref={cartPopupRef}
         data-aos="fade-up"
         className="absolute py-3 rounded-2xl px-2 right-5 w-[300px] h-[200px] bg-white shadow-md"
       >
@@ -92,9 +110,9 @@ export const Pagination = () => {
           priority
           height={100}
           width={100}
-          className={` rounded-2xl w-auto h-auto ${
+          className={` cursor-pointer rounded-2xl w-auto h-auto ${
             allData.activeThumb === i
-              ? "border-[3px] border-solid border-[hsl(26,100%,55%)]"
+              ? "border-[3px] transition-all duration-500 translate-y-4 border-solid border-[hsl(26,100%,55%)]"
               : ""
           }`}
           onClick={() => allData.handleClickThumb(i)}
@@ -116,9 +134,9 @@ export const PaginationOverlay = () => {
           priority
           height={100}
           width={100}
-          className={` rounded-2xl w-auto h-auto ${
+          className={` cursor-pointer rounded-2xl w-auto h-auto ${
             allData.activeThumb === i
-              ? "border-[3px] border-solid border-[hsl(26,100%,55%)] opacity-[90%]"
+              ? "border-[3px] transition-all duration-500 -translate-y-4 border-solid border-[hsl(26,100%,55%)] opacity-[90%]"
               : ""
           }`}
           onClick={() => allData.handleClickThumb(i)}
@@ -179,7 +197,7 @@ export const Modal = () => {
   };
   return (
     modal.openModal && (
-      <div className="w-full fixed left-0 top-0 bottom-0 bg-[rgba(0,0,0,.3)] transition-all ease-out duration-500 z-[1000] h-screen flex items-center justify-center">
+      <div className="w-full px-4 fixed left-0 top-0 bottom-0 bg-[rgba(0,0,0,.3)] transition-all ease-out duration-500 z-[1000] h-screen flex items-center justify-center">
         <div
           data-aos="fade-down"
           className="max-w-[400px] rounded-xl flex flex-col gap-3 p-5 h-[30vh] bg-white shadow-md border"
@@ -215,7 +233,7 @@ export const CheckOutModal = () => {
   };
   return (
     modal.checkOut && (
-      <div className="w-full fixed left-0 top-0 bottom-0 bg-[rgba(0,0,0,.3)] transition-all ease-out duration-500 z-[1000] h-screen flex items-center justify-center">
+      <div className="w-full px-4 fixed left-0 top-0 bottom-0 bg-[rgba(0,0,0,.3)] transition-all ease-out duration-500 z-[1000] h-screen flex items-center justify-center">
         <div
           data-aos="fade-down"
           className="max-w-[400px] rounded-xl flex flex-col gap-3 p-5 h-[30vh] bg-white shadow-md border"
@@ -265,7 +283,7 @@ export const SuccessModal = () => {
   };
   return (
     modal.success && (
-      <div className="w-full fixed left-0 top-0 bottom-0 bg-[rgba(0,0,0,.3)] transition-all ease-out duration-500 z-[1000] h-screen flex items-center justify-center">
+      <div className="w-full px-4 fixed left-0 top-0 bottom-0 bg-[rgba(0,0,0,.3)] transition-all ease-out duration-500 z-[1000] h-screen flex items-center justify-center">
         <div
           data-aos="fade-down"
           className="max-w-[400px] rounded-xl flex flex-col gap-3 p-5 h-[30vh] bg-white shadow-md border"

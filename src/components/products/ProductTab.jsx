@@ -19,9 +19,9 @@ const ProductTab = () => {
 
   return (
     <section className="">
-      {allData.displayCarousel ? (
+      {allData.displayCarousel && (
         <ProductCarousel/>
-      ) : (
+      )} 
         <div className="w-full justify-center items-center md:py-10 flex flex-col md:flex-row">
           <div data-aos="fade-left" className="md:w-[40%] w-full flex flex-col gap-2 justify-center items-center">
             <div className="">
@@ -30,7 +30,7 @@ const ProductTab = () => {
                 width={500}
                 priority
                 onClick={allData.handleShowCarousel}
-                className="md:block hidden w-auto h-full md:rounded-3xl"
+                className="md:block hidden cursor-pointer w-auto h-full md:rounded-3xl"
                 src={allData.productTabImg[allData.activeThumb]}
                 alt="thumb"
               />
@@ -106,7 +106,7 @@ const ProductTab = () => {
             </div>
           </div>
         </div>
-      )}
+      
     </section>
   );
 };
