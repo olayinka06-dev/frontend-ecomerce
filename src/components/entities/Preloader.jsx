@@ -7,7 +7,7 @@ const Preloader = () => {
             <span className=" loading loading-spinner  "></span>
             <span className="">Loading ...</span>
         </div>
-        <div className="absolute bottom-1 left-[40%]">
+        <div className="absolute bottom-1 left-0 md:left-[40%]">
             <span>Build with love by Olayinka Dev</span>
         </div>
     </section>
