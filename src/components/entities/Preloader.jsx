@@ -8,7 +8,7 @@ const Preloader = () => {
             <span className="">Loading ...</span>
         </div>
         <div className="absolute bottom-1 left-0 md:left-[40%]">
-            <span>Build with love by Olayinka Dev</span>
+            <span>Build with love by <span className="bg-[hsl(26,100%,55%)]">Olayinka Dev</span></span>
         </div>
     </section>
   )
