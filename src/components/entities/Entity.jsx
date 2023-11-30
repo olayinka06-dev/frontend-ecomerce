@@ -207,13 +207,13 @@ export const Modal = () => {
           <div className="w-full flex items-center gap-2">
             <button
               onClick={() => setModal({ ...modal, openModal: false })}
-              className=" text-white bg-gray-400 w-1/2 border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-lg"
+              className=" text-white bg-gray-400 w-1/2 border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-sm md:text-lg"
             >
               Cancel
             </button>
             <button
               onClick={handleClearCart}
-              className=" text-white w-1/2 bg-[hsl(26,100%,55%)] border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-lg"
+              className=" text-white w-1/2 bg-[hsl(26,100%,55%)] border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-sm md:text-lg"
             >
               Remove
             </button>
@@ -245,13 +245,13 @@ export const CheckOutModal = () => {
           <div className="w-full flex items-center gap-2">
             <button
               onClick={() => setModal({ ...modal, checkOut: false })}
-              className=" text-white bg-gray-400 w-1/2 border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-lg"
+              className=" text-white bg-gray-400 w-1/2 border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-sm md:text-lg"
             >
               Cancel
             </button>
             <button
               onClick={handleCheckOut}
-              className=" text-white w-1/2 bg-[hsl(26,100%,55%)] border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-lg"
+              className=" text-white w-1/2 bg-[hsl(26,100%,55%)] border-0 py-2 px-6 focus:outline-none hover:bg-[] rounded text-sm md:text-lg"
             >
               Check Out
             </button>
